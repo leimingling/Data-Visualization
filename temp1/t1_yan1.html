@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <title>ECharts</title>
+  <!-- 引入刚刚下载的 ECharts 文件 -->
+  <script src="../echarts.js"></script>
+</head>
+<body>
+<div id="main" style="width: 1250px;height:590px;background: black;"></div>
+<script type="text/javascript">
+  // 基于准备好的dom，初始化echarts实例
+  var myChart = echarts.init(document.getElementById('main'));
+
+  const labelOption = {
+    show: true,
+    position: "insideBottom",
+    distance:19,
+    align: 'left',
+    verticalAlign: 'middle',
+    rotate: 90,
+    formatter: '{c}  {name|{a}}',
+    fontSize: 16,
+    rich: {
+      name: {}
+    }
+  };
+
+
+  option = {
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow'
+      }
+    },
+    legend: {
+      data: ['新算法', '普通DCT算法', 'F5算法']
+    },
+    toolbox: {
+      show: true,
+      orient: 'vertical',
+      left: 'right',
+      top: 'center',
+      feature: {
+        mark: { show: true },
+        dataView: { show: true, readOnly: false },
+        magicType: { show: true, type: ['line', 'bar', 'stack'] },
+        restore: { show: true },
+        saveAsImage: { show: true }
+      }
+    },
+    xAxis: [
+      {
+        type: 'category',
+        axisTick: { show: false },
+        data: ['12.40%', '25.20%']
+      }
+    ],
+    yAxis: [
+      {
+        type: 'value'
+      }
+    ],
+    series: [
+      {
+        name: '新算法',
+        type: 'bar',
+        barGap: 0,
+        label: labelOption,
+        emphasis: {
+          focus: 'series'
+        },
+        data: [56.87, 84.03]
+      },
+      {
+        name: 'F5算法',
+        type: 'bar',
+        label: labelOption,
+        emphasis: {
+          focus: 'series'
+        },
+        data: [33.07, 66.67]
+      },
+      {
+        name: '普通DCT',
+        type: 'bar',
+        label: labelOption,
+        emphasis: {
+          focus: 'series'
+        },
+        data: [47.82,72.13]
+      },
+    ]
+  };
+
+  // 使用刚指定的配置项和数据显示图表。
+  myChart.setOption(option);
+
+</script>
+</body>
+</html>

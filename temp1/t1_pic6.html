@@ -1,0 +1,103 @@
+<!--
+    THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=bar3d-simplex-noise&gl=1&theme=dark
+-->
+<!DOCTYPE html>
+<html style="height: 100%" lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <title>demo</title>
+</head>
+
+<body style="height: 100%; margin: 0">
+<div id="main" style="height: 100%;width:1250px;background: black"></div>
+
+<script type="text/javascript" src="../echarts.js"></script>
+<script type="text/javascript" src="../dataTool.js"></script>
+<script type="text/javascript" src="../echarts-gl.js"></script>
+<script src="../jquery-3.5.1.js"></script>
+
+
+<script type="text/javascript">
+
+    var myChart = echarts.init(document.getElementById('main'));
+    option = {
+        title: {
+            text: 'x10^5',
+            textStyle: { color: '#666', fontSize: 14, fontWeight: 'normal' },
+            padding: [5, 0, 0, 0],
+        },
+        legend: {
+            type: 'plain',
+            top: 0,
+            right: 20,
+            itemGap: 64,
+            itemWidth: 10,
+            icon: 'circle',
+            selectedMode: false,
+            textStyle: { padding: [0, 0, 0, 4] },
+            data: ['值的数目',],
+        },
+        grid: { left: 0, top: 40, bottom: 20, right: 10, containLabel: true },
+        xAxis: {
+            type: 'category',
+            data: [
+                '-50',
+                '-45',
+                '-40',
+                '-35',
+                '-30',
+                '-25',
+                '-20',
+                '-15',
+                '-10',
+                '-5',
+                '0',
+                '5',
+                '10',
+                '15',
+                '20',
+                '25',
+                '30',
+                '35',
+                '40',
+                '45',
+                '50',
+            ],
+            axisLine: { lineStyle: { color: '#ccc' } },
+            axisTick: { length: 3 },
+            axisLabel: { color: '#999' },
+        },
+        yAxis: {
+            type: 'value',
+            axisLine: { show: true, lineStyle: { color: '#ccc' } },
+            axisLabel: { color: '#999' },
+            splitLine: { show: false },
+        },
+        tooltip: {
+            trigger: 'axis',
+            padding: [12, 17, 20, 23],
+            textStyle: { color: '#424242' },
+            renderMode: 'html',
+            className: 'tooltip',
+        },
+        series: [
+            {
+                name: '数值统计',
+                type: 'line',
+                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0.1, 2.8, 0.4, 0, 0, 0,0,0,0,0,0,0,0],
+                smooth: true, // 平滑曲线
+                showSymbol: false,
+                itemStyle: { color: '#126EFC' },
+                lineStyle: { width: 3, color: '#126EFC' },
+                areaStyle: { color: 'rgba(0, 110, 254, 0.1)' },
+            }
+        ],
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+
+
+</script>
+</body>
+</html>
